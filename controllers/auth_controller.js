@@ -56,17 +56,13 @@ exports.login = async (req, res) => {
     message: "Login successfull",
     data: user,
     token_type: "Bearer",
-    acces_token: token,
+    access_token: token,
     expires_in: ACCES_TOKEN_EXPIRED_TIME
   });
 };
 
 exports.getProfile = (req, res) => {
-    const access_token = req.headers['authorization'].split(" ")[1];
-    const decoded_token = jwt.verify(access_token, process.env.TOKEN_SECRET)
-    const user_id = decoded_token._id
-
-    User.findById(user_id).exec((err, user) => {
+    User.findById(req.params.id).exec((err, user) => {
         if (err) {
             return res.status(400).json({ message: "User not found" });
         }
@@ -78,12 +74,8 @@ exports.updateProfile = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) return res.status(400).json({message: "Email is already available"});
 
-    const access_token = req.headers['authorization'].split(" ")[1];
-    const decoded_token = jwt.verify(access_token, process.env.TOKEN_SECRET)
-    const user_id = decoded_token._id
-
-    const filter = { _id: user_id };
-
+    const filter = { _id: req.params.id };
+    
     //hash passwords
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
