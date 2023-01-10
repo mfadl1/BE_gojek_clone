@@ -1,6 +1,6 @@
 # Gojek Cloning App Backend Services
 
-A backend service built with node js and mongodb to serve user services on gojek clone app. This user service is useful for handling operations such as register, login, update user, and get user info by implementing authentication and middleware using JWT tokens, as well as form validation using joi.
+A backend service built with node js and mongodb to serve user services on gojek clone app. This user service is useful for handling operations such as register, login, update user, and get user info by implementing authentication and middleware using JWT tokens, as well as input validation using joi.
 
 ## Setup Project
 
