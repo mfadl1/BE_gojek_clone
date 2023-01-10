@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "0eaf50fc-6353-4ef8-88cd-d4828589ce32",
+		"name": "Gojek endpoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19848132"
+	},
+	"item": [
+		{
+			"name": "User service",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "dliskuyt",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "081212250469409",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "gunardi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "kris@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JiYThmNjEyZjRhMWE2ZGNiYmYzZDMiLCJpYXQiOjE2NzMyNzk0MTksImV4cCI6MTY3MzM2NTgxOX0.kZApi3HcYJSU0B_5bW4yWPhtDgkrQxB4qSAsjbrXlSs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JiYTY3NmMyNjg5ZjczNWI3MTI2YjkiLCJpYXQiOjE2NzMyNDQwNjEsImV4cCI6MTY3MzMzMDQ2MX0.sikkYWtd7pAcoNXKTspAw7izvLCdYNFgFCzg6rvqrDc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/me/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"me",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Profile",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JiYTY3NmMyNjg5ZjczNWI3MTI2YjkiLCJpYXQiOjE2NzMyNTI2OTcsImV4cCI6MTY3MzMzOTA5N30.hY9LujXYwCgJUe1Bn_J1FTpTuaH5FyHFD7Ho-yWrLgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fadli Gunardi",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "081115670",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fadligun@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "lantana3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/edit-profile/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"edit-profile",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
